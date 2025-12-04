@@ -1,0 +1,27 @@
+indices:
+  full:
+    # Root of your EDS content. Adjust if your site lives under a subfolder.
+    source: /
+    include:
+      - '**'          # include every file under the source
+    exclude:
+      # Avoid importing Helix system/config and DA/Helix query artifacts
+      - '**/drafts/**'
+      - '**/.helix/**'
+      - '**/.da/**'
+      - '**/query-index.json'
+      - '**/full-index.json'
+      - '**/sitemap.json'
+      - '**/sitemap.xml'
+    target: /full-index.json
+    properties:
+      url:
+        select: url
+      path:
+        select: path
+      contentType:
+        select: content-type
+      title:
+        select: meta.title
+      lastModified:
+        select: lastModified
